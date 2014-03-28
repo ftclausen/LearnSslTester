@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.blackboard.mh</groupId>
-  <artifactId>sslTester</artifactId>
+  <artifactId>LearnSslTester</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>sslTester</name>
+  <name>LearnSslTester</name>
   <description>Simple tool to connect to an SSL port and see if the certificates are in order.</description>
   <build>
     <plugins>
@@ -12,7 +12,7 @@
         <configuration>
           <archive>
             <manifest>
-                <mainClass>com.blackboard.mh.SslTesterApp</mainClass>
+                <mainClass>com.blackboard.mh.LearnSslTesterApp</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>

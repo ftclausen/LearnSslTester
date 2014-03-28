@@ -2,7 +2,7 @@ package com.blackboard.mh;
 
 import java.io.IOException;
 
-public class SslTesterApp {
+public class LearnSslTesterApp {
 
 	public static void main(String[] args) {
     	String url = null;
@@ -17,7 +17,7 @@ public class SslTesterApp {
     		System.exit(1);
     	}
     	
-    	SslTester target = new SslTester(url);
+    	LearnSslTester target = new LearnSslTester(url);
     	String header = null;
     	try {
 			header = target.getHeader();

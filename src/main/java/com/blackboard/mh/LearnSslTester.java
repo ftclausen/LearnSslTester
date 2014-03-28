@@ -24,11 +24,11 @@ import org.apache.http.impl.client.HttpClients;
 
 
 
-public class SslTester {
+public class LearnSslTester {
 
 	String url = null;
 	
-    public SslTester(String url) {
+    public LearnSslTester(String url) {
     	if (url != null) {
     		this.url = url;
     		if ( ! url.startsWith("https")) {
