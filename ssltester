@@ -1,0 +1,29 @@
+#!/bin/bash
+# Friedrich Clausen - Simple SSL tester to see if Java can connect.
+
+jar=""
+search_dirs=("target" "." "/mnt/asp/utils/app/bin")
+for dir in ${search_dirs[@]}; do
+    if [[ -d "$dir" ]]; then
+        result=$(find $dir -maxdepth 1 -type f -name '*sslTester*jar')
+        if [[ $result != "" ]]; then
+            jar=$result
+        fi 
+    fi
+done
+
+if [[ $jar == "" ]]; then
+    echo "ERROR: Could not find sslTester jar file"
+    exit 1
+fi
+
+if [[ -d "/usr/local/blackboard/jdk" ]]; then
+    /usr/local/blackboard/jdk/bin/java -jar $jar
+else
+    if [[ $(type -p java) != "" ]]; then
+        java -jar $jar $@
+    else
+        echo "ERROR: Cannot find Java in path"
+        exit 1;
+    fi
+fi
