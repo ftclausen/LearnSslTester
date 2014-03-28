@@ -18,10 +18,10 @@ if [[ $jar == "" ]]; then
 fi
 
 if [[ -d "/usr/local/blackboard/jdk" ]]; then
-    /usr/local/blackboard/jdk/bin/java -jar $jar
+    "/usr/local/blackboard/jdk/bin/java" -jar "$jar"
 else
     if [[ $(type -p java) != "" ]]; then
-        java -jar $jar $@
+        java -jar "$jar" $@
     else
         echo "ERROR: Cannot find Java in path"
         exit 1;
