@@ -68,11 +68,7 @@ public class LearnSslTester {
             		}
             	}
             };
-            
             learnHeader = httpclient.execute(httpget, getLearnHeader);
-            
-        } catch (Exception e) {
-        	System.err.println("ERROR: Could not connect : " + e.getMessage());
         } finally {
         	httpclient.close();
         }

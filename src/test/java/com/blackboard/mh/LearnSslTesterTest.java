@@ -1,8 +1,14 @@
 package com.blackboard.mh;
 
 import java.io.IOException;
+
+import javax.net.ssl.SSLHandshakeException;
+
+import org.apache.http.client.ClientProtocolException;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
 import com.blackboard.mh.LearnSslTester;
 
 public class LearnSslTesterTest {
@@ -23,5 +29,16 @@ public class LearnSslTesterTest {
 		LearnSslTester target = new LearnSslTester("webtech-test.blackboard.com");
 	}
 	
+	@Test(expected=ClientProtocolException.class)
+	public void invalidRequest() throws IOException {
+		LearnSslTester target = new LearnSslTester("https://files.blackboard.com/not_found_here");
+		target.getHeader();
+	}
+
+	@Test(expected=SSLHandshakeException.class)
+	public void invalidCertificate() throws IOException {
+		LearnSslTester target = new LearnSslTester("https://apimisc-webtech-playground-appdb");
+		target.getHeader();
+	}
 	// TODO: Not a learn server test - make own exception for that
 }
