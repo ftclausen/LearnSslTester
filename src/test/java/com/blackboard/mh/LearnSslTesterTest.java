@@ -16,7 +16,7 @@ public class LearnSslTesterTest {
 	// Naive yes, the site may not be up but it'll do for this learning exercise   
 	@Test
 	public void validUrlTest() {
-		LearnSslTester target = new LearnSslTester("https://webtech-test.blackboard.com");
+		LearnSslTester target = new LearnSslTester("https://bbuniversity.blackboard.com/webapps/portal/healthCheck");
 		try {
 			assertTrue(target.getHeader().startsWith("X-Blackboard-product:"));
 		} catch (IOException e) {
@@ -26,7 +26,7 @@ public class LearnSslTesterTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void invalidUrlTest() {
-		LearnSslTester target = new LearnSslTester("webtech-test.blackboard.com");
+		LearnSslTester target = new LearnSslTester("bbuniversity.blackboard.com");
 	}
 	
 	@Test(expected=ClientProtocolException.class)
@@ -34,11 +34,4 @@ public class LearnSslTesterTest {
 		LearnSslTester target = new LearnSslTester("https://files.blackboard.com/not_found_here");
 		target.getHeader();
 	}
-
-	@Test(expected=SSLHandshakeException.class)
-	public void invalidCertificate() throws IOException {
-		LearnSslTester target = new LearnSslTester("https://apimisc-webtech-playground-appdb");
-		target.getHeader();
-	}
-	// TODO: Not a learn server test - make own exception for that
 }
